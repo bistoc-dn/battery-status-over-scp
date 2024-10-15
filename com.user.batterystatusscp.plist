@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.user.batterystatus</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/sh</string>
+        <string>-c</string>
+        <string>pmset -g batt > /tmp/pmset_out && scp /tmp/pmset_out user@ip:/tmp/tmux_battery_remote_pmset_out</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>120</integer>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/tmp/batterystatus.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/batterystatus.err</string>
+</dict>
+</plist>
