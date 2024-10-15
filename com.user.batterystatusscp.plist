@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.user.batterystatus</string>
+    <string>com.user.batterystatusscp</string>
     <key>ProgramArguments</key>
     <array>
         <string>/bin/sh</string>
         <string>-c</string>
-        <string>pmset -g batt > /tmp/pmset_out && scp /tmp/pmset_out user@ip:/tmp/tmux_battery_remote_pmset_out</string>
+	<string>pmset -g batt > /tmp/pmset_out && scp -i <id_rsa> -o StrictHostKeyChecking=no -o PasswordAuthentication=no /tmp/pmset_out <user>@<ip>:/tmp/tmux_battery_remote_pmset_out</string>
     </array>
     <key>StartInterval</key>
     <integer>120</integer>
@@ -17,8 +17,8 @@
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/tmp/batterystatus.log</string>
+    <string>/tmp/batterystatusscp.out</string>
     <key>StandardErrorPath</key>
-    <string>/tmp/batterystatus.err</string>
+    <string>/tmp/batterystatusscp.err</string>
 </dict>
 </plist>
